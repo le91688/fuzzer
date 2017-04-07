@@ -1,14 +1,10 @@
 import subprocess
-import random
-import argparse
-import os
-
-FNULL = open(os.devnull, 'w')
 
 def run(data):
     path = '/usr/bin/curl'
+    args = '--url'
     try:
-        ps = subprocess.check_output([path, "--url"  ,data])
+        ps = subprocess.check_output([path, args ,data])
         ps.wait()
     except Exception, e:
         #print e.returncode
@@ -28,6 +24,3 @@ if __name__ == "__main__":
         junk += "A"
         run(junk)
     f.close()
-
-
-
